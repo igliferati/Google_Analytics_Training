@@ -21,6 +21,15 @@ SELECT
 FROM
     `mimetic-firefly-371412.avocado_data.avocado_prices`
 WHERE
-  Total_Bags != 0 --- We use filter to not inlude 0 because we can not divide with 0
+  Total_Bags != 0 --- We use filter to not inlude 0 because we can not divide with 0/** Calculations with other statements **/
 
+SELECT 
+  EXTRACT(YEAR FROM STARTTIME) AS year,
+  COUNT(*) AS number_of_rides
+FROM 
+  `bigquery-public-data.new_york_citibike.citibike_trips` 
+GROUP BY 
+  year
+ORDER BY 
+  year DESC
 
